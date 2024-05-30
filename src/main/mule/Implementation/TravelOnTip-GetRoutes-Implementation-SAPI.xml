@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="TravelOnTip-GetRoutes-Implementation-SAPIFlow" doc:id="243041f2-89a0-47eb-8265-5acdf758cfe8" >
+		<http:request method="GET" doc:name="Request" doc:id="378ff0b7-a15b-4de6-a61d-4e616458ad29" config-ref="HTTP_Request_configuration" path="${http.requester.routesPath}" responseTimeout="20000" sendBodyMode="ALWAYS">
+			<http:headers ><![CDATA[#[output application/java
+---
+{
+	transactionId : vars.transactionId
+}]]]></http:headers>
+		</http:request>
+		<ee:transform doc:name="Transform Message" doc:id="2a2139f5-d241-42f4-acae-ef9f90147ddc" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload map{
+	originLocation: {
+		locationCode: $.ORIGINLOCATIONCODE
+		},
+	destinationLocation: {
+		locationCode: $.DESTINATIONLOCATIONCODE
+	}
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="ae3749ed-ff79-4f8d-bd8e-9932d4a9680a" message="GetRoutes Log after getting request from external system for transactionId: #[vars.transactionId]"/>
+	</flow>
+</mule>

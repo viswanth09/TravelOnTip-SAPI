@@ -1,0 +1,94 @@
+#%RAML 1.0 Trait
+description: Common error codes 
+
+responses:
+  400:
+    body:
+      application/json:
+        type: object
+        properties:
+          status:
+            type: number
+            required: true
+            example: 400
+          message:
+            type: string
+            required: true
+            example: "Bad request"
+        example:
+          {
+            "status" : 400,
+            "message" : "Bad Request"
+          }
+  401:
+    body:
+      application/json:
+        type: object
+        properties:
+          status:
+            type: number
+            required: true
+            example: 401
+          message:
+            type: string
+            required: true
+            example: "unauthorized"
+        example:
+          {
+            "status" : 400,
+            "message" : "unauthorized"
+          }
+  404:
+    body:
+      application/json:
+        type: object
+        properties:
+          status:
+            type: number
+            required: true
+            example: 404
+          message:
+            type: string
+            required: true
+            example: "Page not Found"
+        example:
+          {
+            "status" : 400,
+            "message" : "Page not Found"
+          }
+  405:
+    body:
+      application/json:
+        type: object
+        properties:
+          status:
+            type: number
+            required: true
+            example: 405
+          message:
+            type: string
+            required: true
+            example: "Method Not Allowed"
+        example:
+          {
+            "status" : 405,
+            "message" : "Method Not Allowed"
+          }
+  500:
+    body:
+      application/json:
+        type: object
+        properties:
+          status:
+            type: number
+            required: true
+            example: 500
+          message:
+            type: string
+            required: true
+            example: "Internal Server Error"
+        example:
+          {
+            "status" : 500,
+            "message" : "Internal Server Error"
+          }

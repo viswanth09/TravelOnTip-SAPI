@@ -1,0 +1,19 @@
+#%RAML 1.0 DataType
+description: this the sucess response example body properties.
+
+type: array
+items:
+  type: object
+  properties:
+    originLocation:
+      type: object
+      properties:
+        locationCode:
+          type: string
+          example: "BEM-SG"
+    destinationLocation:
+      type: object
+      properties:
+        locationCode:
+          type: string
+          example: "KLG-MY"
