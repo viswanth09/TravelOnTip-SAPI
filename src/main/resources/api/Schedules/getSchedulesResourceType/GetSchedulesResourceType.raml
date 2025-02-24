@@ -1,0 +1,22 @@
+#%RAML 1.0 ResourceType
+description: This a Schedules GET method compiled in one raml with all best practices
+
+get:
+  is:
+    - commonErrorCodes
+    - commonHeader
+  queryParameters:
+    departureLocationCode:
+      required: false
+      type: string
+      example: "BEN-SG"
+    destinationLocationCode:
+      required: false
+      type: string
+      example: "KLG-MY"
+  responses:
+    200:
+      body:
+        application/json:
+          type: SheduleBodyDataType                
+          example: !include /Schedules/SchedulesResponseExample/SchedulesResponseExample.json

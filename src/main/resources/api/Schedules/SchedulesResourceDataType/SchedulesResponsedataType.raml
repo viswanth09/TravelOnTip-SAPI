@@ -1,0 +1,28 @@
+#%RAML 1.0 DataType
+description: This is the sucess response body of the schedules endpoint.
+
+type: array
+items:
+  type: object
+  properties:
+    availableSeats:
+      type: number
+      example: 20
+    departureDateTime:
+      type: string
+      example: "2015-23-09T22:44:33.0987"
+    travelRoute:
+      type: object
+      properties:
+        destinationLocation:
+          type: object
+          properties:
+            locationCode:
+              type: string
+              example: "KLG-MY"
+        originLocation:
+          type: object
+          properties:
+            locationCode:
+              type: string
+              example: "BEN-SG"

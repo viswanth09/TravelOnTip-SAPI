@@ -1,0 +1,10 @@
+http:
+  listener:
+    host: "localhost"
+    port: "8083"
+    path: ""
+  requester:
+    host: "localhost"
+    port: "8081"
+    routesPath: "/TravelOnTip/routes"
+    schedulesPath: "/TravelOnTip/schedules"

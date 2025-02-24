@@ -1,0 +1,22 @@
+#%RAML 1.0
+title: RetriveRoutesAndSchedules TravelOnTip SAPI
+description: This app will fetch routes and schedules from TravelOnTip system.
+#baseUri: http://traWell.com 
+version: v1
+types:
+  RoutesBodyDataType: !include /Routes/ResourceDataType/ResourceResponseDataType.raml.raml
+  SheduleBodyDataType: !include /Schedules/SchedulesResourceDataType/SchedulesResponsedataType.raml
+traits:
+  commonErrorCodes: !include /CommonTraits/commonErrorCodesStatus.raml
+  commonHeader: !include /CommonTraits/CommonHeader.raml
+
+resourceTypes:
+  Routes: !include /Routes/GetRoutesResourceType/GetRoutesresourceType.raml
+  Schedules: !include /Schedules/getSchedulesResourceType/GetSchedulesResourceType.raml
+
+/{transportType}:
+  /{transportCompany}:
+    /routes:
+      type: Routes
+    /schedules:
+      type: Schedules

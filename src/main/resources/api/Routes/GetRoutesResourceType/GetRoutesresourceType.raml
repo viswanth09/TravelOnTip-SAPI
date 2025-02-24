@@ -1,0 +1,12 @@
+#%RAML 1.0 ResourceType
+description: This a Route GET method compiled in one raml with all best practices
+get:
+  is:
+  - commonErrorCodes
+  - commonHeader
+  responses:
+    200:
+      body:
+        application/json:
+          type: RoutesBodyDataType      
+          example: !include /Routes/RoutesResponeExample/RoutesResponseExample.json

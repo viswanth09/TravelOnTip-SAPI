@@ -1,0 +1,5 @@
+    {
+        "ORIGINLOCATIONCODE": "BEN-SG",
+        "DESTINATIONLOCATIONCODE": "KLG-MY",
+        "COMPANYNAME": "TravelOnTip"
+    }

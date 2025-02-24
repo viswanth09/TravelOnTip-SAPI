@@ -1,0 +1,4 @@
+%dw 2.0
+
+type auto_39d1b275_a4e1_4581_b382_d149f5439c95_Output_Payload = Array<{  availableSeats: Number,   departureDateTime: String,   travelRoute: {    destinationLocation: {      locationCode: String,       _?: Any    },     originLocation: {      locationCode: String,       _?: Any    },     _?: Any  },   _?: Any}> {"description": "This is the sucess response body of the schedules endpoint."}
+
